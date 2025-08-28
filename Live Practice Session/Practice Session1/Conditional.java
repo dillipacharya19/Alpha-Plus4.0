@@ -22,22 +22,69 @@
 // }
 // }
 
+
+
+
+
 // Q-2 Finish the following code so that it prints you have a fever if your
 // tempreture is above 100 and otherwise prints you don't have fever.
 
-import java.util.*;
+// import java.util.*;
 
+// public class Conditional {
+
+// public static void main(String[] args) {
+// Scanner sc = new Scanner(System.in);
+
+// int temp = sc.nextInt();
+
+// if (temp >= 100) {
+// System.out.println("You have Fever");
+// } else {
+// System.out.println("You don't have Fever");
+// }
+// }
+// }
+
+
+
+
+
+
+
+// Q-3 Write a java program to input week number (1-7) and print day of week
+// name using switch case.
+
+import java.util.*;
 public class Conditional {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int temp = sc.nextInt();
-
-        if (temp >= 100) {
-            System.out.println("You have Fever");
-        } else {
-            System.out.println("You don't have Fever");
+        Scanner sc= new Scanner(System.in);
+        int day = sc.nextInt();
+        switch (day) {
+            case 1
+                System.out.println("sunday");
+                break;
+            case 2:
+                System.out.println("monday");
+            break;
+            case 3:
+                System.out.println("tuesday");
+            break;
+            case 4:
+                System.out.println("wednesday");
+            break;
+            case 5:
+                System.out.println("thursday");
+            break;
+            case 6:
+                System.out.println("friday");
+            break;
+            case 7:
+            System.out.println("saturday");
+            break;
+            default:
+                System.out.println("Invaild input");
         }
     }
 }
