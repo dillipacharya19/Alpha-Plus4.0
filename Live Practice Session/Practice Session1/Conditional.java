@@ -96,10 +96,37 @@
 
 // Q-4 What will be the value of x&y in the following program.
 
+// public class Conditional {
+//     public static void main(String[] args) {
+//         int a = 63 , int b = 36;
+//         boolean x = (a<b) ? true : false;
+//         int y = (a>b) ? a : b;
+//     }
+// }
+
+
+
+
+
+
+// Q-5 Write a java program that takes a year from the user and print whether that year is a leap or not.
+
+
+import java.util.Scanner;
 public class Conditional {
     public static void main(String[] args) {
-        int a = 63 , int b = 36;
-        boolean x = (a<b) ? true : false;
-        int y = (a>b) ? a : b;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Provide a input");
+
+        int year = sc.nextInt();
+        if(year % 4!=0){
+            System.out.println("Not a leap year");
+        }else if (year % 4 == 0 && year % 100 !=0) {
+            System.out.println("leap year");
+        }else if (year % 4==0 && year % 100==0 && year % 400 !=0){
+            System.out.println("Not a leap year");
+        }else{
+            System.out.println("leap year");
+        }
     }
 }
