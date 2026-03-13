@@ -43,20 +43,45 @@ public class Classroom {
 
 
     //Diameter of a tree
-    public static int diameter(Node root){  //O(N^2)
+    public static int diameter2(Node root){  //O(N^2)
         if(root == null){
             return 0;
         }
 
-        int leftDiam = diameter(root.left);
+        int leftDiam = diameter2(root.left);
         int leftHt = height(root.left);
-        int rightDiam = diameter(root.right);
+        int rightDiam = diameter2(root.right);
         int rightHt = height(root.right);
 
         int selfDiam = leftHt + rightHt +1;
         
         return Math.max(selfDiam, Math.max(leftDiam,rightDiam));
     }
+
+    static class Info{
+        int diam;
+        int ht;
+
+        public Info (int diam, int ht){
+            this.diam = diam;
+            this.ht = ht;
+        }
+    }
+
+    public static Info diameter(Node root) {
+    if (root == null) {
+        return new Info(0, 0);
+    }
+
+    Info leftInfo = diameter(root.left);
+    Info rightInfo = diameter(root.right);
+
+    int selfDiam = leftInfo.ht + rightInfo.ht + 1;
+    int diam = Math.max(selfDiam, Math.max(leftInfo.diam, rightInfo.diam));
+    int ht = Math.max(leftInfo.ht, rightInfo.ht) + 1;
+
+    return new Info(diam, ht);
+}
     public static void main(String[] args) {
         /*
             Tree structure:
@@ -77,6 +102,7 @@ public class Classroom {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        System.out.println("Diameter of a tree = " + diameter(root));
+        //System.out.println("Diameter of a tree height = " + diameter(root).ht);
+        System.out.println("Diameter of a tree = " + diameter(root).diam);
     }
 }
